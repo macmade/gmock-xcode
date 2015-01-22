@@ -41,6 +41,11 @@ DIR_BUILD                       = ./build/
 DIR_SRC                         = ./source/
 DIR_TMP                         = ./tmp/
 DIR_TMP_BUILD                   = $(DIR_TMP)build/
+ifeq ($(findstring Darwin, $(shell uname)),)
+DIR_BUILD_LIB                   = $(DIR_BUILD)lib/linux/
+else
+DIR_BUILD_LIB                   = $(DIR_BUILD)lib/osx/
+endif
 
 #-------------------------------------------------------------------------------
 # Software versions
@@ -68,7 +73,6 @@ all: gmock_unpack gmock_build
 # Clean-up
 clean:
 	@echo "    *** Cleaning all build files"
-	@rm -rf $(DIR_BUILD)lib/osx/*
 	
 # GMock source un-archiving
 gmock_unpack:
@@ -79,9 +83,9 @@ gmock_unpack:
 gmock_build:
 	@echo "    *** Building GMock ($(VERSION_GMOCK))"
 	@cd $(DIR_TMP_BUILD) && cmake ../../$(SRC_GMOCK_DIR) && make
-	@cp $(DIR_TMP_BUILD)libgmock.a $(DIR_BUILD)lib/osx
-	@cp $(DIR_TMP_BUILD)libgmock_main.a $(DIR_BUILD)lib/osx
-	@cp $(DIR_TMP_BUILD)gtest/libgtest_main.a $(DIR_BUILD)lib/osx
-	@cp $(DIR_TMP_BUILD)gtest/libgtest.a $(DIR_BUILD)lib/osx
+	@cp $(DIR_TMP_BUILD)libgmock.a $(DIR_BUILD_LIB)
+	@cp $(DIR_TMP_BUILD)libgmock_main.a $(DIR_BUILD_LIB)
+	@cp $(DIR_TMP_BUILD)gtest/libgtest_main.a $(DIR_BUILD_LIB)
+	@cp $(DIR_TMP_BUILD)gtest/libgtest.a $(DIR_BUILD_LIB)
 	@cp -rf $(SRC_GMOCK_DIR)include/gmock $(DIR_BUILD)include/
 	@cp -rf $(SRC_GMOCK_DIR)gtest/include/gtest $(DIR_BUILD)include/
