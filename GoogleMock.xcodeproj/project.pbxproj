@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		056BBE9E1B43085E0017CFD0 /* gmock.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05E96ABD1A68600C00204102 /* gmock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		056BBE9F1B43085E0017CFD0 /* gtest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05E96B1F1A68634900204102 /* gtest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05818F8B1A685AEA0072A469 /* GoogleMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 05818F8A1A685AEA0072A469 /* GoogleMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05818F911A685AEA0072A469 /* GoogleMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05818F861A685AEA0072A469 /* GoogleMock.framework */; };
 		05E96A2F1A685B9500204102 /* GMXCTestBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E96A2D1A685B9500204102 /* GMXCTestBridge.mm */; };
@@ -36,12 +38,6 @@
 		05E96B291A68636600204102 /* gtest_pred_impl.h in Headers */ = {isa = PBXBuildFile; fileRef = 05E96AE41A68626C00204102 /* gtest_pred_impl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05E96B2A1A68636600204102 /* gtest_prod.h in Headers */ = {isa = PBXBuildFile; fileRef = 05E96AE51A68626C00204102 /* gtest_prod.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05E96B2B1A68636600204102 /* internal in Headers */ = {isa = PBXBuildFile; fileRef = 05E96B091A68630F00204102 /* internal */; settings = {ATTRIBUTES = (Public, ); }; };
-		05E96B431A6866CD00204102 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E96B421A6866CD00204102 /* libc++.dylib */; };
-		05E96B441A6866D300204102 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E96B421A6866CD00204102 /* libc++.dylib */; };
-		05FFA2F11A686BD0006E1B9B /* gmock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E96ABD1A68600C00204102 /* gmock.framework */; };
-		05FFA2F21A686BD0006E1B9B /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E96B1F1A68634900204102 /* gtest.framework */; };
-		05FFA2F71A686BE5006E1B9B /* gmock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E96ABD1A68600C00204102 /* gmock.framework */; };
-		05FFA2F81A686BE5006E1B9B /* gtest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05E96B1F1A68634900204102 /* gtest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +77,20 @@
 			remoteInfo = gtest;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		056BBE9D1B4308550017CFD0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				056BBE9E1B43085E0017CFD0 /* gmock.framework in CopyFiles */,
+				056BBE9F1B43085E0017CFD0 /* gtest.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		05818F6E1A65D93C0072A469 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -125,7 +135,6 @@
 		05E96B091A68630F00204102 /* internal */ = {isa = PBXFileReference; lastKnownFileType = folder; path = internal; sourceTree = "<group>"; };
 		05E96B1F1A68634900204102 /* gtest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = gtest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E96B2E1A6863DC00204102 /* gtest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "gtest-Info.plist"; sourceTree = "<group>"; };
-		05E96B421A6866CD00204102 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +142,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05FFA2F11A686BD0006E1B9B /* gmock.framework in Frameworks */,
-				05FFA2F21A686BD0006E1B9B /* gtest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,8 +149,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05FFA2F71A686BE5006E1B9B /* gmock.framework in Frameworks */,
-				05FFA2F81A686BE5006E1B9B /* gtest.framework in Frameworks */,
 				05818F911A685AEA0072A469 /* GoogleMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,7 +157,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05E96B441A6866D300204102 /* libc++.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +164,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05E96B431A6866CD00204102 /* libc++.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +177,6 @@
 				05818F871A685AEA0072A469 /* GoogleMock */,
 				05818F941A685AEA0072A469 /* GoogleMockTests */,
 				05E96A361A685EB600204102 /* Libraries */,
-				05FFA2F91A686C74006E1B9B /* Frameworks */,
 				05818F4C1A65CA410072A469 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -304,14 +306,6 @@
 			path = gtest;
 			sourceTree = "<group>";
 		};
-		05FFA2F91A686C74006E1B9B /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				05E96B421A6866CD00204102 /* libc++.dylib */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -371,6 +365,7 @@
 				05818F821A685AEA0072A469 /* Frameworks */,
 				05818F831A685AEA0072A469 /* Headers */,
 				05818F841A685AEA0072A469 /* Resources */,
+				056BBE9D1B4308550017CFD0 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -802,9 +797,15 @@
 				INFOPLIST_FILE = "GoogleMock/GoogleMock-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/build/lib/osx",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					XCTest,
+					"-lc++",
+					"-lgmock",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -831,9 +832,15 @@
 				INFOPLIST_FILE = "GoogleMock/GoogleMock-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/build/lib/osx",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					XCTest,
+					"-lc++",
+					"-lgmock",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -890,6 +897,7 @@
 					"$(PROJECT_DIR)/Libraries/build/lib/osx",
 				);
 				OTHER_LDFLAGS = (
+					"-lc++",
 					"-lgmock",
 					"-all_load",
 				);
@@ -920,6 +928,7 @@
 					"$(PROJECT_DIR)/Libraries/build/lib/osx",
 				);
 				OTHER_LDFLAGS = (
+					"-lc++",
 					"-lgmock",
 					"-all_load",
 				);
@@ -950,6 +959,7 @@
 					"$(PROJECT_DIR)/Libraries/build/lib/osx",
 				);
 				OTHER_LDFLAGS = (
+					"-lc++",
 					"-lgtest",
 					"-all_load",
 				);
@@ -980,6 +990,7 @@
 					"$(PROJECT_DIR)/Libraries/build/lib/osx",
 				);
 				OTHER_LDFLAGS = (
+					"-lc++",
 					"-lgtest",
 					"-all_load",
 				);
@@ -1117,9 +1128,15 @@
 				INFOPLIST_FILE = "GoogleMock/GoogleMock-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Libraries/build/lib/osx",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					XCTest,
+					"-lc++",
+					"-lgmock",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1148,6 +1165,7 @@
 					"$(PROJECT_DIR)/Libraries/build/lib/osx",
 				);
 				OTHER_LDFLAGS = (
+					"-lc++",
 					"-lgmock",
 					"-all_load",
 				);
@@ -1178,6 +1196,7 @@
 					"$(PROJECT_DIR)/Libraries/build/lib/osx",
 				);
 				OTHER_LDFLAGS = (
+					"-lc++",
 					"-lgtest",
 					"-all_load",
 				);
