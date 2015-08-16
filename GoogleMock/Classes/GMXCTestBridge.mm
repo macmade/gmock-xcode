@@ -118,9 +118,13 @@ static void __f( id self, SEL _cmd )
             
             /* Test has failed */
             {
-                int        testPartResultCount;
-                int        j;
-                NSString * summary;
+                int              testPartResultCount;
+                int              j;
+                NSString       * message;
+                NSString       * part;
+                NSMutableArray * parts;
+                NSString       * file;
+                NSUInteger       line;
                 
                 /* Number of test part results */
                 testPartResultCount = testResult->total_part_count();
@@ -136,32 +140,31 @@ static void __f( id self, SEL _cmd )
                         continue;
                     }
                     
-                    /* First line of the summary */
-                    summary = [ NSString stringWithCString: testPartResult.summary() encoding: NSUTF8StringEncoding ];
-                    summary = [ [ summary componentsSeparatedByString: @"\n" ] firstObject ];
+                    /* Test message */
+                    message = [ NSString stringWithCString: testPartResult.message() encoding: NSUTF8StringEncoding ];
+                    parts   = [ NSMutableArray new ];
+                    
+                    for( part in [ message componentsSeparatedByString: @"\n" ] )
+                    {
+                        [ parts addObject: [ part stringByTrimmingCharactersInSet: [ NSCharacterSet whitespaceCharacterSet ] ] ];
+                    }
+                    
+                    message = [ parts componentsJoinedByString: @" | " ];
+                    
+                    /* Test file and line */
+                    if( testPartResult.file_name() == nullptr )
+                    {
+                        file = @"";
+                        line = 0;
+                    }
+                    else
+                    {
+                        file = [ NSString stringWithCString: testPartResult.file_name() encoding: NSUTF8StringEncoding ];
+                        line = ( NSUInteger )( testPartResult.line_number() );
+                    }
                     
                     /* Fails the test */
-                    XCTAssertTrue
-                    (
-                        false,
-                        "Failed GMock test - %s.%s - %s\n"
-                        "\n"
-                        "--------------------------------------------------------------------------------\n"
-                        "Test:        %s.%s\n"
-                        "File name:   %s\n"
-                        "Line number: %i\n"
-                        "--------------------------------------------------------------------------------\n"
-                        "%s\n"
-                        "--------------------------------------------------------------------------------\n",
-                        testCaseName.c_str(),
-                        testInfoName.c_str(),
-                        summary.UTF8String,
-                        testCaseName.c_str(),
-                        testInfoName.c_str(),
-                        ( testPartResult.file_name() == nullptr ) ? "" : testPartResult.file_name(),
-                        testPartResult.line_number(),
-                        testPartResult.message()
-                    );
+                    [ self recordFailureWithDescription: message inFile: file atLine: line expected: YES ];
                 }
             }
             
