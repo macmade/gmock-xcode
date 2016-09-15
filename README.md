@@ -50,8 +50,6 @@ The easiest way to do this is to include the provided Xcode project (`GoogleMock
 
 Then, from the `Build Phases` screen of your unit test's target, add the following frameworks to the `Target Dependancies` step:
 
- * gmock
- * gtest
  * GoogleMock
 
 Adds the same frameworks to the `Link Binary With Libraries` step, and you're done.  
