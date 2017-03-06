@@ -38,7 +38,6 @@
 #-------------------------------------------------------------------------------
 
 DIR_BUILD                       = ./build/
-DIR_SRC                         = ./source/
 DIR_TMP                         = ./tmp/
 DIR_TMP_BUILD                   = $(DIR_TMP)build/
 ifeq ($(findstring Darwin, $(shell uname)),)
@@ -51,14 +50,14 @@ endif
 # Software versions
 #-------------------------------------------------------------------------------
 
-VERSION_GMOCK                   = 1.7.0
+VERSION_GMOCK                   = 1.8.0
 
 #-------------------------------------------------------------------------------
 # Source paths
 #-------------------------------------------------------------------------------
 
-SRC_GMOCK                       = $(DIR_SRC)gmock-$(VERSION_GMOCK).zip
-SRC_GMOCK_DIR                   = $(DIR_TMP)gmock-$(VERSION_GMOCK)/
+SRC_GMOCK                       = $(DIR_TMP)release-$(VERSION_GMOCK).zip
+SRC_GMOCK_DIR                   = $(DIR_TMP)googletest-release-$(VERSION_GMOCK)/
 
 #-------------------------------------------------------------------------------
 # Targets
@@ -68,12 +67,17 @@ SRC_GMOCK_DIR                   = $(DIR_TMP)gmock-$(VERSION_GMOCK)/
 .PHONY: clean all gmock_unpack gmock_build
 
 # Complete build
-all: gmock_unpack gmock_build
+all: $(SRC_GMOCK) gmock_unpack gmock_build
 
 # Clean-up
 clean:
 	@echo "    *** Cleaning all build files"
-	
+
+# GMock source download
+$(SRC_GMOCK):
+	@echo "    *** Downloading GMock ($(VERSION_GMOCK))"
+	@cd $(DIR_TMP) && wget https://github.com/google/googletest/archive/release-$(VERSION_GMOCK).zip
+
 # GMock source un-archiving
 gmock_unpack:
 	@echo "    *** Unpacking GMock ($(VERSION_GMOCK))"
@@ -82,10 +86,10 @@ gmock_unpack:
 # GMock libraries build
 gmock_build:
 	@echo "    *** Building GMock ($(VERSION_GMOCK))"
-	@cd $(DIR_TMP_BUILD) && cmake ../../$(SRC_GMOCK_DIR) && make
-	@cp $(DIR_TMP_BUILD)libgmock.a $(DIR_BUILD_LIB)
-	@cp $(DIR_TMP_BUILD)libgmock_main.a $(DIR_BUILD_LIB)
-	@cp $(DIR_TMP_BUILD)gtest/libgtest_main.a $(DIR_BUILD_LIB)
-	@cp $(DIR_TMP_BUILD)gtest/libgtest.a $(DIR_BUILD_LIB)
-	@cp -rf $(SRC_GMOCK_DIR)include/gmock $(DIR_BUILD)include/
-	@cp -rf $(SRC_GMOCK_DIR)gtest/include/gtest $(DIR_BUILD)include/
+	@cd $(DIR_TMP_BUILD) && cmake -DCMAKE_OSX_DEPLOYMENT_TARGET=10.7 -DCMAKE_CXX_FLAGS="-stdlib=libc++" ../../$(SRC_GMOCK_DIR) && make
+	@cp $(DIR_TMP_BUILD)googlemock/libgmock.a $(DIR_BUILD_LIB)
+	@cp $(DIR_TMP_BUILD)googlemock/libgmock_main.a $(DIR_BUILD_LIB)
+	@cp $(DIR_TMP_BUILD)googlemock/gtest/libgtest_main.a $(DIR_BUILD_LIB)
+	@cp $(DIR_TMP_BUILD)googlemock/gtest/libgtest.a $(DIR_BUILD_LIB)
+	@cp -rf $(SRC_GMOCK_DIR)googlemock/include/gmock $(DIR_BUILD)include/
+	@cp -rf $(SRC_GMOCK_DIR)googletest/include/gtest $(DIR_BUILD)include/
