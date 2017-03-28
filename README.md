@@ -16,9 +16,9 @@ About
 This project consists of an integration of the GoogleMock library to Apple's Xcode IDE.
 
 Since version 5, Xcode provides a nice way to write unit tests with the `XCTest` framework.  
-The cool thing is that unit tests written with `XCTest` are nicely integrated to the IDE, providing visual feedback when running tests. Obviously they are also nicely integrated with the different build toolchains, like `xcodebuild` or Facebook's `xctool`.
+Unit tests written with `XCTest` are integrated to the IDE, providing visual feedback when running tests. They are also integrated with the different build toolchains, like `xcodebuild` or Facebook's `xctool`.
 
-While this is perfect for Objective-C, writing unit tests for other languages (like C++) is not so great with `XCTest`.  
+It was specifially designed for Objective-C, writing unit tests for other languages (such as C++) is not so great with `XCTest`. 
 Of course, this is possible using Objective-C++, but writing an Objective-C class for each C++ test case leads to some undesired overhead.
 
 GoogleMock is nice unit testing library for C++. The only issue is that it does not integrate well with Xcode, as does `XCTest`.  
