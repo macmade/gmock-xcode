@@ -33,8 +33,8 @@
  * @abstract    GoogleMock integration for Xcode (XCTest)
  */
 
-#ifndef __GOOGLE_MOCK_H__
-#define __GOOGLE_MOCK_H__
+#ifndef GOOGLE_MOCK_H
+#define GOOGLE_MOCK_H
 
 /* GoogleMock C++ include files */
 #ifdef __cplusplus
@@ -45,6 +45,12 @@
 #pragma clang diagnostic ignored "-Wvariadic-macros"
 #pragma clang diagnostic ignored "-Wc++11-long-long"
 #pragma clang diagnostic ignored "-Wc++11-extensions"
+#pragma clang diagnostic ignored "-Wreserved-id-macro"
+#pragma clang diagnostic ignored "-Wmissing-noreturn"
+#pragma clang diagnostic ignored "-Wpadded"
+#pragma clang diagnostic ignored "-Wused-but-marked-unused"
+#pragma clang diagnostic ignored "-Wdeprecated"
+#pragma clang diagnostic ignored "-Wglobal-constructors"
 #endif
 
 #include <gmock/gmock.h>
@@ -54,6 +60,11 @@
 #pragma clang diagnostic pop
 #endif
 
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wglobal-constructors"
+#endif
+
 #endif /* __cplusplus */
 
-#endif /* __GOOGLE_MOCK_H__ */
+#endif /* GOOGLE_MOCK_H */
