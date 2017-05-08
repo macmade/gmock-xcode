@@ -101,7 +101,6 @@
 		05818F961A685AEA0072A469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05E96A2D1A685B9500204102 /* GMXCTestBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GMXCTestBridge.mm; sourceTree = "<group>"; };
 		05E96A301A685DA900204102 /* Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test.cpp; sourceTree = "<group>"; };
-		05E96A331A685E3900204102 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		05E96A6E1A685EB600204102 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		05E96ABD1A68600C00204102 /* gmock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = gmock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		05E96AC41A68615A00204102 /* gmock-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "gmock-Info.plist"; sourceTree = "<group>"; };
@@ -205,7 +204,6 @@
 		05818F881A685AEA0072A469 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				05E96A331A685E3900204102 /* PrefixHeader.pch */,
 				05E96AC41A68615A00204102 /* gmock-Info.plist */,
 				05818F891A685AEA0072A469 /* GoogleMock-Info.plist */,
 				05E96B2E1A6863DC00204102 /* gtest-Info.plist */,
@@ -570,6 +568,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "$(SRCROOT)/Scripts/ccache.sh";
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = YES;
 				CLANG_ANALYZER_GCD = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
@@ -689,6 +688,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "$(SRCROOT)/Scripts/ccache.sh";
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = YES;
 				CLANG_ANALYZER_GCD = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
@@ -1024,6 +1024,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "$(SRCROOT)/Scripts/ccache.sh";
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = YES;
 				CLANG_ANALYZER_GCD = YES;
 				CLANG_ANALYZER_LOCALIZABILITY_EMPTY_CONTEXT = YES;
