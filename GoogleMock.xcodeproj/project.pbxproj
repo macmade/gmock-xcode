@@ -11,6 +11,7 @@
 		056BBE9F1B43085E0017CFD0 /* gtest.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 05E96B1F1A68634900204102 /* gtest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		05818F8B1A685AEA0072A469 /* GoogleMock.h in Headers */ = {isa = PBXBuildFile; fileRef = 05818F8A1A685AEA0072A469 /* GoogleMock.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05818F911A685AEA0072A469 /* GoogleMock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05818F861A685AEA0072A469 /* GoogleMock.framework */; };
+		05BE0B7D1EC0EC5C00C83888 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 05BE0B7B1EC0EC4D00C83888 /* libc++.tbd */; };
 		05E96A2F1A685B9500204102 /* GMXCTestBridge.mm in Sources */ = {isa = PBXBuildFile; fileRef = 05E96A2D1A685B9500204102 /* GMXCTestBridge.mm */; };
 		05E96A311A685DA900204102 /* Test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 05E96A301A685DA900204102 /* Test.cpp */; };
 		05E96AF41A68627200204102 /* gmock-actions.h in Headers */ = {isa = PBXBuildFile; fileRef = 05E96AC61A68626B00204102 /* gmock-actions.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -99,6 +100,7 @@
 		05818F8A1A685AEA0072A469 /* GoogleMock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoogleMock.h; sourceTree = "<group>"; };
 		05818F901A685AEA0072A469 /* GoogleMockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoogleMockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		05818F961A685AEA0072A469 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05BE0B7B1EC0EC4D00C83888 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		05E96A2D1A685B9500204102 /* GMXCTestBridge.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GMXCTestBridge.mm; sourceTree = "<group>"; };
 		05E96A301A685DA900204102 /* Test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Test.cpp; sourceTree = "<group>"; };
 		05E96A6E1A685EB600204102 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05BE0B7D1EC0EC5C00C83888 /* libc++.tbd in Frameworks */,
 				05818F911A685AEA0072A469 /* GoogleMock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,6 +180,7 @@
 				05818F941A685AEA0072A469 /* GoogleMockTests */,
 				05E96A361A685EB600204102 /* Libraries */,
 				05818F4C1A65CA410072A469 /* Products */,
+				05BE0B7A1EC0EC4D00C83888 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -226,6 +230,14 @@
 				05818F961A685AEA0072A469 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05BE0B7A1EC0EC4D00C83888 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05BE0B7B1EC0EC4D00C83888 /* libc++.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		05E96A2B1A685B9500204102 /* Classes */ = {
@@ -594,7 +606,7 @@
 				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_LINK_OBJC_RUNTIME = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
@@ -714,7 +726,7 @@
 				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_LINK_OBJC_RUNTIME = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
@@ -810,8 +822,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = GoogleMock/PrefixHeader.pch;
 				INFOPLIST_FILE = "GoogleMock/GoogleMock-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
@@ -845,8 +855,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = GoogleMock/PrefixHeader.pch;
 				INFOPLIST_FILE = "GoogleMock/GoogleMock-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
@@ -1050,7 +1058,7 @@
 				CLANG_ANALYZER_SECURITY_KEYCHAIN_API = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_MODULES = NO;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_LINK_OBJC_RUNTIME = YES;
 				CLANG_STATIC_ANALYZER_MODE = deep;
@@ -1151,8 +1159,6 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
 				FRAMEWORK_VERSION = A;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = GoogleMock/PrefixHeader.pch;
 				INFOPLIST_FILE = "GoogleMock/GoogleMock-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
