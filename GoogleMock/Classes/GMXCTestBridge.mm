@@ -38,7 +38,9 @@
 #pragma clang diagnostic ignored "-Wvariadic-macros"
 #pragma clang diagnostic ignored "-Wgnu-statement-expression"
 #pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
+#if __clang_major__ > 8
 #pragma clang diagnostic ignored "-Wunguarded-availability"
+#endif
 #endif
 
 #import <gmock/gmock.h>
