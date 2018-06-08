@@ -6,11 +6,8 @@ install:
 - gem install xcpretty
 - brew install ccache
 - PATH=$PATH:/usr/local/opt/ccache/libexec
-- export PYTHONUSERBASE=~/.local
-- easy_install --user scan-build
 script:
-- set -o pipefail && xcodebuild -project "GoogleMock.xcodeproj" -scheme "GoogleMock" build test | xcpretty
-- set -o pipefail && scan-build --status-bugs xcodebuild -project "GoogleMock.xcodeproj" -scheme "GoogleMock" analyze | xcpretty
+- set -o pipefail && xcodebuild -project "GoogleMock.xcodeproj" -scheme "GoogleMock" build analyze test | xcpretty
 before_script:
 - ccache -s
 - ccache -z
