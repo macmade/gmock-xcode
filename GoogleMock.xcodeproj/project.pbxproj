@@ -743,7 +743,7 @@
 /* Begin XCBuildConfiguration section */
 		05818F5D1A65CA410072A469 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0572244B2011293500DC0502 /* Debug - ccache.xcconfig */;
+			baseConfigurationReference = 0572244C2011293500DC0502 /* Debug.xcconfig */;
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 			};
@@ -751,7 +751,7 @@
 		};
 		05818F5E1A65CA410072A469 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 057224492011293500DC0502 /* Release - ccache.xcconfig */;
+			baseConfigurationReference = 0572244D2011293500DC0502 /* Release.xcconfig */;
 			buildSettings = {
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 			};
