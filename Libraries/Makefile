@@ -76,7 +76,7 @@ clean:
 # GMock source download
 $(SRC_GMOCK):
 	@echo "    *** Downloading GMock ($(VERSION_GMOCK))"
-	@cd $(DIR_TMP) && wget https://github.com/google/googletest/archive/release-$(VERSION_GMOCK).zip
+	@cd $(DIR_TMP) && curl -O -L https://github.com/google/googletest/archive/release-$(VERSION_GMOCK).zip
 
 # GMock source un-archiving
 gmock_unpack:
