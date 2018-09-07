@@ -40,10 +40,13 @@
 DIR_BUILD                       = ./build/
 DIR_TMP                         = ./tmp/
 DIR_TMP_BUILD                   = $(DIR_TMP)build/
+
 ifeq ($(findstring Darwin, $(shell uname)),)
 DIR_BUILD_LIB                   = $(DIR_BUILD)lib/linux/
+CMAKE_FLAGS                     =
 else
 DIR_BUILD_LIB                   = $(DIR_BUILD)lib/osx/
+CMAKE_FLAGS                     = -DCMAKE_OSX_DEPLOYMENT_TARGET=10.7 -DCMAKE_CXX_FLAGS="-stdlib=libc++"
 endif
 
 #-------------------------------------------------------------------------------
@@ -86,7 +89,7 @@ gmock_unpack:
 # GMock libraries build
 gmock_build:
 	@echo "    *** Building GMock ($(VERSION_GMOCK))"
-	@cd $(DIR_TMP_BUILD) && cmake -DCMAKE_OSX_DEPLOYMENT_TARGET=10.7 -DCMAKE_CXX_FLAGS="-stdlib=libc++" ../../$(SRC_GMOCK_DIR) && make
+	@cd $(DIR_TMP_BUILD) && cmake $(CMAKE_FLAGS) ../../$(SRC_GMOCK_DIR) && make
 	@cp $(DIR_TMP_BUILD)googlemock/libgmock.a $(DIR_BUILD_LIB)
 	@cp $(DIR_TMP_BUILD)googlemock/libgmock_main.a $(DIR_BUILD_LIB)
 	@cp $(DIR_TMP_BUILD)googlemock/gtest/libgtest_main.a $(DIR_BUILD_LIB)
