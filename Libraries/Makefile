@@ -46,7 +46,7 @@ DIR_BUILD_LIB                   = $(DIR_BUILD)lib/linux/
 CMAKE_FLAGS                     =
 else
 DIR_BUILD_LIB                   = $(DIR_BUILD)lib/osx/
-CMAKE_FLAGS                     = -DCMAKE_OSX_DEPLOYMENT_TARGET=10.7 -DCMAKE_CXX_FLAGS="-stdlib=libc++"
+CMAKE_FLAGS                     = -DCMAKE_OSX_SYSROOT=$(xcrun --sdk macosx --show-sdk-path) -DCMAKE_OSX_DEPLOYMENT_TARGET=10.7 -DCMAKE_CXX_FLAGS="-stdlib=libc++"
 endif
 
 #-------------------------------------------------------------------------------
