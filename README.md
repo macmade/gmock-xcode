@@ -81,7 +81,7 @@ In the above example, a subclass of `XCTestCase` named `MyTestCase` will be crea
 License
 -------
 
-The GoogleMock Xcode integration library is released under the terms of the Boost Software License - Version 1.0.
+The GoogleMock Xcode integration library is released under the terms of the MIT License.
 
 Repository Infos
 ----------------
