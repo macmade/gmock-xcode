@@ -631,6 +631,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 05818F421A65CA410072A469;
@@ -745,7 +746,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0572244C2011293500DC0502 /* Debug.xcconfig */;
 			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ARCHS = x86_64;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 			};
 			name = Debug;
 		};
@@ -753,7 +755,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0572244D2011293500DC0502 /* Release.xcconfig */;
 			buildSettings = {
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ARCHS = x86_64;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 			};
 			name = Release;
 		};
