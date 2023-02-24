@@ -1,7 +1,7 @@
 GoogleMock - Xcode
 ==================
 
-[![Build Status](https://img.shields.io/github/workflow/status/macmade/gmock-xcode/ci-mac?label=macOS&logo=apple)](https://github.com/macmade/gmock-xcode/actions/workflows/ci-mac.yaml)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/macmade/gmock-xcode/ci-mac.yaml?label=macOS&logo=apple)](https://github.com/macmade/gmock-xcode/actions/workflows/ci-mac.yaml)
 [![Issues](http://img.shields.io/github/issues/macmade/gmock-xcode.svg?logo=github)](https://github.com/macmade/gmock-xcode/issues)
 ![Status](https://img.shields.io/badge/status-legacy-red.svg?logo=git)
 ![License](https://img.shields.io/badge/license-mit-brightgreen.svg?logo=open-source-initiative)  
